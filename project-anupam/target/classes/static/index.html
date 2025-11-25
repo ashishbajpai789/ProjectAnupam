@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Anupam - The Incomparable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ffc0cb;
+            --light-pink: #ffe4e9;
+            --dark-pink: #ff69b4;
+            --text-dark: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--text-dark);
+            background-color: var(--light-pink);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: var(--primary-pink);
+            border-bottom: 2px solid var(--dark-pink);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-dark) !important;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin: 0 0.5rem;
+            letter-spacing: 1px;
+            padding: 0.5rem 0.8rem !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--dark-pink) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--light-pink) 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            word-wrap: break-word;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            padding: 0 15px;
+        }
+
+        .hero-tagline {
+            color: var(--dark-pink);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--dark-pink);
+            color: var(--white);
+            border: none;
+            padding: 12px 35px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 2px;
+            padding: 0 15px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border: 2px solid var(--primary-pink);
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            height: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 192, 203, 0.3);
+            border-color: var(--dark-pink);
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 2px solid var(--primary-pink);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            border-radius: 10px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 192, 203, 0.3);
+            border-color: var(--dark-pink);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            background: var(--light-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary-pink);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-img i {
+            font-size: 2.5rem;
+            color: var(--dark-pink);
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            color: var(--dark-pink);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .btn-cart {
+            background-color: var(--dark-pink);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .btn-cart:hover {
+            background-color: #ff1493;
+            box-shadow: 0 5px 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .about-section {
+            background: var(--white);
+            padding: 60px 20px;
+        }
+
+        .special-offer {
+            background: var(--dark-pink);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .special-offer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .incubation-section {
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--primary-pink) 100%);
+            padding: 60px 20px;
+        }
+
+        .footer {
+            background: var(--dark-pink);
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer h5 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer p,
+        .footer li {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--light-pink);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--light-pink);
+        }
+
+        .badge-special {
+            background-color: #ff1493;
+            color: white;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .badge-coming {
+            background-color: var(--primary-pink);
+            color: var(--text-dark);
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .navbar-toggler {
+            border-color: var(--dark-pink);
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 105, 180, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 50px;
+            color: var(--dark-pink);
+        }
+
+        .login-link {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark-pink);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            background: #ff1493;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Mobile Specific Styles */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+
+            .navbar-nav {
+                background-color: var(--primary-pink);
+                padding: 1rem 0;
+                margin-top: 1rem;
+                border-radius: 8px;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.7rem 1rem !important;
+                margin: 0;
+                border-bottom: 1px solid var(--light-pink);
+            }
+
+            .navbar-nav .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            .hero-section {
+                padding: 50px 15px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .btn-primary-custom {
+                font-size: 0.9rem;
+                padding: 10px 30px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .category-card {
+                padding: 1.2rem;
+            }
+
+            .category-title {
+                font-size: 1rem;
+            }
+
+            .product-card {
+                padding: 1.2rem;
+            }
+
+            .product-img {
+                height: 180px;
+            }
+
+            .product-img i {
+                font-size: 2rem;
+            }
+
+            .product-title {
+                font-size: 1rem;
+            }
+
+            .product-price {
+                font-size: 1.2rem;
+            }
+
+            .about-section,
+            .incubation-section {
+                padding: 50px 15px;
+            }
+
+            .special-offer {
+                padding: 40px 15px;
+            }
+
+            .special-offer h2 {
+                font-size: 1.6rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .footer {
+                padding: 30px 15px 15px;
+            }
+
+            .footer h5 {
+                font-size: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .footer h5:first-child {
+                margin-top: 0;
+            }
+
+            .social-icons a {
+                font-size: 1.3rem;
+            }
+
+            .login-link {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .col-sm-6 {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        /* Slider Layout */
+/* Slider Layout */
+.slider-container {
+    position: relative;
+    width: 100%;
+    padding: 0 70px;
+}
+
+.slider-viewport {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.product-card-wrapper {
+    flex: 0 0 25%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Center cards if fewer than 4 */
+.slider-track.few-products {
+    justify-content: center;
+}
+
+/* Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--dark-pink);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.left-arrow { left: 0; }
+.right-arrow { right: 0; }
+
+.slider-arrow:hover {
+    background: #ff1493;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+.slider-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.slider-arrow:disabled:hover {
+    background: var(--dark-pink);
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+/* Responsive Slider */
+@media (max-width: 992px) {
+    .product-card-wrapper {
+        flex: 0 0 33.333%;
+    }
+
+    .slider-container {
+        padding: 0 60px;
+    }
+
+    .slider-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card-wrapper {
+        flex: 0 0 50%;
+    }
+
+    .slider-container {
+        padding: 0 55px;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-card-wrapper {
+        flex: 0 0 100%;
+    }
+
+    .slider-container {
+        padding: 0 50px;
+    }
+
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        background: rgba(255, 105, 180, 0.95);
+    }
+}
+    </style>
+</head>
+
+<body>
+<!-- Admin Link -->
+<a href="login.html" class="login-link" title="Login">
+    <i class="fas fa-user-shield"></i>
+</a>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">PROJECT ANUPAM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">DISCOVER OUR COLLECTION</h1>
+        <p class="hero-subtitle">Unique products designed to elevate your everyday life</p>
+        <p class="hero-tagline">THE INCOMPARABLE</p>
+        <a href="#shop" class="btn btn-primary-custom">Shop Now</a>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-6">
+                <div class="category-card" onclick="filterProducts('new')">
+                    <i class="fas fa-star fa-3x" style="color: var(--dark-pink);"></i>
+                    <h3 class="category-title">New</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-6">
+                <div class="category-card" onclick="filterProducts('sale')">
+                    <i class="fas fa-tag fa-3x" style="color: #ff1493;"></i>
+                    <h3 class="category-title">On Sale</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-6">
+                <div class="category-card" onclick="filterProducts('gift')">
+                    <i class="fas fa-gift fa-3x" style="color: var(--dark-pink);"></i>
+                    <h3 class="category-title">Gift Ideas</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-6">
+                <div class="category-card" onclick="filterProducts('bestseller')">
+                    <i class="fas fa-fire fa-3x" style="color: #ff1493;"></i>
+                    <h3 class="category-title">Best Sellers</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2 class="section-title">Welcome to Project Anupam</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <p class="lead text-center">
+                    Project Anupam is a platform for students to showcase their handmade ventures,
+                    helping them establish their own entrepreneurial identity. We aim to build a space
+                    where they can transform their passion into revenue-generating ventures by creating
+                    a bridge between student creators and customers, encouraging innovation without
+                    compromising talent or time.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<!-- Product Slider Container -->
+<section id="shop" class="py-4" style="background: var(--light-pink);">
+    <div class="container">
+        <h2 class="section-title">SHOP NOW!</h2>
+
+        <div class="position-relative">
+
+            <!-- Left arrow -->
+            <button id="leftArrow" class="slider-arrow left-arrow">&lt;</button>
+
+            <!-- Slider viewport -->
+            <div id="sliderViewport" class="slider-viewport">
+                <div id="productsSlider" class="slider-track"></div>
+            </div>
+
+            <!-- Right arrow -->
+            <button id="rightArrow" class="slider-arrow right-arrow">&gt;</button>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Special Offer Section -->
+<section class="special-offer">
+    <div class="container">
+        <span class="badge badge-special mb-3">SPECIAL OFFER</span>
+        <h2>Stylish Home Decor</h2>
+        <span class="badge badge-coming mt-3">COMING SOON</span>
+        <p class="lead mt-3">Stay Tuned</p>
+    </div>
+</section>
+
+<!-- Incubation Program -->
+<section class="incubation-section">
+    <div class="container">
+        <h2 class="section-title">Incubation Program</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <p class="lead text-center">
+                    The incubation program fosters innovation and entrepreneurship by creating a
+                    supportive ecosystem for the students. Our mission is to provide resources,
+                    mentorship and guidance to help young minds convert ideas into reality. We aim
+                    to equip students with practical business experience and the confidence to make
+                    a lasting impact on society.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope me-2"></i> projectanupamjdmc@gmail.com</p>
+                <p><i class="fas fa-envelope me-2"></i> incubation@jdm.du.ac.in</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Find Us Elsewhere</h5>
+                <div class="social-icons mb-3">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>@incubationprogram_jdmc</p>
+                <p>@projectanupam</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border-color: var(--light-pink); margin: 20px 0;">
+        <div class="text-center">
+            <p style="margin-bottom: 0;">&copy; 2024 Project Anupam - The Incomparable. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    /* --------------------------------------------
+       Global Variables
+    -------------------------------------------- */
+    const API_URL = 'http://localhost:8080/api/public/products';
+    let allProducts = [];
+    let currentSlide = 0;
+
+    /* --------------------------------------------
+       Get Items Per Slide Based on Screen Size
+    -------------------------------------------- */
+    function getItemsPerSlide() {
+        if (window.innerWidth <= 576) return 1;
+        if (window.innerWidth <= 768) return 2;
+        if (window.innerWidth <= 992) return 3;
+        return 4;
+    }
+
+    /* --------------------------------------------
+       Helper: Resolve Image URL
+    -------------------------------------------- */
+    function resolveImageUrl(path) {
+        if (!path) return '';
+        if (path.startsWith("http")) return path;
+        return "http://localhost:8080" + (path.startsWith("/") ? path : "/" + path);
+    }
+
+    /* --------------------------------------------
+       Render Products into Slider
+    -------------------------------------------- */
+    function renderProducts(products) {
+        console.log('Rendering products:', products);
+        const slider = document.getElementById("productsSlider");
+        const leftArrow = document.getElementById("leftArrow");
+        const rightArrow = document.getElementById("rightArrow");
+
+        slider.innerHTML = "";
+
+        const itemsPerSlide = getItemsPerSlide();
+
+        if (products.length === 0) {
+            slider.innerHTML = '<div style="text-align: center; padding: 50px; width: 100%;"><p style="color: var(--dark-pink); font-size: 1.2rem;">No products available</p></div>';
+            leftArrow.style.display = "none";
+            rightArrow.style.display = "none";
+            return;
+        }
+
+        if (products.length <= itemsPerSlide) {
+            slider.classList.add("few-products");
+            leftArrow.style.display = "none";
+            rightArrow.style.display = "none";
+        } else {
+            slider.classList.remove("few-products");
+            leftArrow.style.display = "flex";
+            rightArrow.style.display = "flex";
+        }
+
+        products.forEach(p => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'product-card-wrapper';
+            wrapper.innerHTML = `
+                <div class="product-card">
+                    <div class="product-img">
+                        ${p.imageUrl ? `<img src="${resolveImageUrl(p.imageUrl)}" alt="${p.name}">` : `<i class="fas fa-image"></i>`}
+                    </div>
+                    <h3 class="product-title">${p.name}</h3>
+                    <p class="product-price">₹${p.effectivePrice ?? p.price}</p>
+                    <button class="btn btn-cart" onclick="addToCart(${p.id})">ADD TO CART</button>
+                </div>
+            `;
+            slider.appendChild(wrapper);
+        });
+
+        currentSlide = 0;
+        updateSlider();
+    }
+
+    /* --------------------------------------------
+       Update Slider Position
+    -------------------------------------------- */
+    function updateSlider() {
+        const slider = document.getElementById("productsSlider");
+        const leftArrow = document.getElementById("leftArrow");
+        const rightArrow = document.getElementById("rightArrow");
+        const total = allProducts.length;
+        const itemsPerSlide = getItemsPerSlide();
+
+        if (total === 0) return;
+
+        const totalSlides = Math.ceil(total / itemsPerSlide);
+        const maxSlide = totalSlides - 1;
+
+        if (currentSlide < 0) currentSlide = 0;
+        if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+        const cardWidth = 100 / itemsPerSlide;
+        const offset = currentSlide * itemsPerSlide * cardWidth;
+        slider.style.transform = `translateX(-${offset}%)`;
+
+        leftArrow.disabled = currentSlide === 0;
+        rightArrow.disabled = currentSlide >= maxSlide;
+    }
+
+    /* --------------------------------------------
+       Arrow Click Handlers
+    -------------------------------------------- */
+    function initializeArrows() {
+        document.getElementById("leftArrow").onclick = () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        };
+
+        document.getElementById("rightArrow").onclick = () => {
+            const itemsPerSlide = getItemsPerSlide();
+            const totalSlides = Math.ceil(allProducts.length / itemsPerSlide);
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlider();
+            }
+        };
+    }
+
+    /* --------------------------------------------
+       Handle Window Resize
+    -------------------------------------------- */
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            currentSlide = 0;
+            renderProducts(allProducts);
+        }, 250);
+    });
+
+    /* --------------------------------------------
+       Load Products from Backend
+    -------------------------------------------- */
+    async function loadProducts() {
+        console.log('Loading products from:', API_URL);
+        try {
+            const response = await fetch(API_URL);
+            console.log('Response status:', response.status);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('API Result:', result);
+
+            allProducts = result.data || [];
+            console.log('Products loaded:', allProducts.length);
+            renderProducts(allProducts);
+
+        } catch (err) {
+            console.error('Error loading products:', err);
+            const slider = document.getElementById("productsSlider");
+            slider.innerHTML = '<div style="text-align: center; padding: 50px; width: 100%;"><p style="color: var(--dark-pink); font-size: 1.2rem;">Failed to load products. Please check your connection.</p></div>';
+        }
+    }
+
+    /* --------------------------------------------
+       Filter by Category
+    -------------------------------------------- */
+    async function filterProducts(category) {
+        console.log('Filtering by category:', category);
+        try {
+            const url = `${API_URL}?category=${encodeURIComponent(category)}`;
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('Filtered result:', result);
+
+            allProducts = result.data || [];
+            currentSlide = 0;
+            renderProducts(allProducts);
+
+            document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+        } catch (err) {
+            console.error('Error filtering products:', err);
+            alert("Failed to filter products.");
+        }
+    }
+
+    /* --------------------------------------------
+       Add To Cart Placeholder
+    -------------------------------------------- */
+    function addToCart(id) {
+        alert("Added product " + id + " to cart!");
+    }
+
+    /* --------------------------------------------
+       Page Load - Initialize Everything
+    -------------------------------------------- */
+    window.addEventListener('DOMContentLoaded', () => {
+        console.log('Page loaded, initializing...');
+        initializeArrows();
+        loadProducts();
+    });
+</script>
+
+
+</body>
+
+</html>
