@@ -39,23 +39,23 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        // Public endpoints
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/public/**").permitAll()
-                        .requestMatchers("/static/**", "/css/**", "/js/**", "/images/**").permitAll()
-                        .requestMatchers("/", "/index.html", "/login.html", "/product-detail.html",
-                                "/cart.html", "/checkout.html", "/track-order.html", "/login", "/admin-dashboard.html", "/student-dashboard.html", "/favicon.ico", "/uploads/**").permitAll()
+                                // Public endpoints
+                                .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers("/api/public/**").permitAll()
+                                .requestMatchers("/static/**", "/css/**", "/js/**", "/images/**").permitAll()
+                                .requestMatchers("/", "/index.html", "/login.html", "/product-detail.html",
+                                        "/cart.html", "/checkout.html", "/track-order.html", "/login", "/admin-dashboard.html", "/student-dashboard.html", "/favicon.ico", "/uploads/**").permitAll()
 
-                        // Admin endpoints
-                        .requestMatchers("/admin","/api/admin/**").hasRole("ADMIN")
+                                // Admin endpoints
+                                .requestMatchers("/admin", "/api/admin/**").hasRole("ADMIN")
 //                        .requestMatchers("/admin-dashboard.html").hasRole("ADMIN")
 
-                        // Student endpoints
-                        .requestMatchers("/student","/api/student/**").hasRole("STUDENT")
+                                // Student endpoints
+                                .requestMatchers("/student", "/api/student/**").hasRole("STUDENT")
 //                        .requestMatchers("/student-dashboard.html").hasRole("STUDENT")
 
-                        // All other requests require authentication
-                        .anyRequest().authenticated()
+                                // All other requests require authentication
+                                .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -87,7 +87,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:3000", "http://localhost:63342","https://projectanupam.onrender.com"));
+        configuration.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:3000", "http://localhost:63342", "https://projectanupam.onrender.com"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);

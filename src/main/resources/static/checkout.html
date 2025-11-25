@@ -467,7 +467,7 @@
     function resolveImageUrl(imagePath) {
       if (!imagePath) return '';
       if (imagePath.startsWith("http")) return imagePath;
-      return `http://localhost:8080${imagePath.startsWith("/") ? imagePath : "/" + imagePath}`;
+      return `https://projectanupam.onrender.com${imagePath.startsWith("/") ? imagePath : "/" + imagePath}`;
     }
 
     async function loadCheckout() {
