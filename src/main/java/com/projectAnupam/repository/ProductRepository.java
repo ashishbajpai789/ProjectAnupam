@@ -16,6 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // Find all active products
     List<Product> findByActiveTrue();
 
+    List<Product> findByActiveTrueAndQuantityGreaterThan(int quantity);
+
     // Find products by student
     List<Product> findByStudentId(Long studentId);
 

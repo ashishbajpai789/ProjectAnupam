@@ -144,8 +144,8 @@ public class ProductService {
 
     // ========== PUBLIC OPERATIONS ==========
 
-    public List<ProductDTO> getActiveProducts() {
-        return productRepository.findByActiveTrue().stream()
+    public List<ProductDTO> getActiveProductsAndQunatityNotZero() {
+        return productRepository.findByActiveTrueAndQuantityGreaterThan().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }

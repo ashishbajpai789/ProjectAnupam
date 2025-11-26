@@ -41,15 +41,15 @@ public class PublicController {
         List<ProductDTO> products;
 
         // Get active products
-        products = productService.getActiveProducts();
+        products = productService.getActiveProductsAndQunatityNotZero();
 
         // Also get inactive products that are in orders
-        List<ProductDTO> orderedInactiveProducts = productService.getInactiveProductsInOrders();
+//        List<ProductDTO> orderedInactiveProducts = productService.getInactiveProductsInOrders();
 
         // Combine both lists
-        Set<ProductDTO> allProducts = new HashSet<>(products);
-        allProducts.addAll(orderedInactiveProducts);
-        products = new ArrayList<>(allProducts);
+//        Set<ProductDTO> allProducts = new HashSet<>(products);
+//        allProducts.addAll(orderedInactiveProducts);
+//        products = new ArrayList<>(allProducts);
 
         // Apply filters
         if (category != null && !category.isBlank()) {
