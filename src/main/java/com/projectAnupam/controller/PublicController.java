@@ -41,7 +41,7 @@ public class PublicController {
         List<ProductDTO> products;
 
         // Get active products
-        products = productService.getActiveProductsAndQunatityNotZero();
+        products = productService.getActiveProductsAndQuantityNotZero();
 
         // Also get inactive products that are in orders
 //        List<ProductDTO> orderedInactiveProducts = productService.getInactiveProductsInOrders();
